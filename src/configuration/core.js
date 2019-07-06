@@ -8,6 +8,9 @@ const compress = require('compression');
 const methodOverride = require('method-override');
 const helmet = require('helmet');
 const cors = require('cors');
+const routes = require('../api/routes');
+const CommunicationService = require('../services/CommunicationService');
+const comm = new CommunicationService();
 
 const app = express();
 const server = new http.createServer(app);
@@ -39,5 +42,9 @@ app.use(error.notFound);
 
 // error handler, send stacktrace only during development
 app.use(error.handler);
+
+//Routes
+comm.setRouter(app);
+routes(comm);
 
 module.exports = server;
