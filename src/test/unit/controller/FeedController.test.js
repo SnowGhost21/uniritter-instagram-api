@@ -9,7 +9,7 @@ describe('Test the FeedController', () => {
         jest.resetAllMocks();
     });
 
-    test('Test the get method', async(done) => {
+    test('Test the get method', async (done) => {
         const expected = [];
         const received = await FeedController.get();
         console.log(received);
