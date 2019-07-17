@@ -36,9 +36,18 @@
     "jest": "^24.8.0",
     "jest-mongoose-mock": "^1.2.0",
     "joi": "^14.3.1",
+    "md5": "^2.2.1",
     "method-override": "^3.0.0",
+    "model-transform": "^2.0.0",
     "mongodb-memory-server": "^5.1.5",
     "mongoose": "^5.6.3",
-    "morgan": "^1.9.1"
+    "morgan": "^1.9.1",
+    "url-pattern": "^1.0.3"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "roots": [
+      "./src"
+    ]
   }
 }
