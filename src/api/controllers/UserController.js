@@ -52,7 +52,7 @@ module.exports = {
         const result = await UserRepository.findOne({
             username,
             password
-        }).select('-password');
+        });
 
         if (result) {
             return result;
