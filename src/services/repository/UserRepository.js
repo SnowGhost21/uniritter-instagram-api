@@ -3,18 +3,22 @@ const ApiError = require('../../api/utils/ApiError');
 
 
 module.exports = {
-    createUser: async (user) =>  {
-        const newUser = await User.create(user)
+    createUser: async (user) => {
+        const newUser = await User.create(user);
         return newUser;
     },
 
-    findyById: async(userId) => {
+    findById: async (userId) => {
         const user = await User.findById(userId);
         return user
     },
 
-    getPhotosByUserId: async(userId) => {
-        const user =  await User.findById(userId)
-        return user.photos || []
+    getPhotosByUserId: async (userId) => {
+        const user = await User.findById(userId)
+        return user.photos
+    },
+
+    findOne: async (conditions) => {
+        return await User.findOne(conditions);
     }
 }

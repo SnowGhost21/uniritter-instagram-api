@@ -4,8 +4,8 @@ const LocatorService = require('../../services/LocatorService');
 const UserRepository = LocatorService.getUserRepository();
 
 module.exports = {
-    get: async () => {
-        const user = await UserRepository.findById("id");
+    get: async (data) => {
+        const user = await UserRepository.findById(data.userId);    
         if (user) {
             return user.photos || [];
         } else {
