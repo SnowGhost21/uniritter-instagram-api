@@ -62,5 +62,27 @@ module.exports = {
             status: 404,
             message: 'User not found'
         });
+    },
+
+    getUserFeed: async (data) => {
+        const userId = data.userId;
+
+        try {
+            const user = await UserRepository.findById(userId);
+            if (user && user.feed) {
+                return user.feed;
+            }
+
+            return new ApiError({
+                status: 404,
+                message: 'User not found'
+            })
+        } catch (err) {
+            return new ApiError({
+                status: 500,
+                message: err.message
+            })
+        }
+
     }
 }

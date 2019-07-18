@@ -33,14 +33,12 @@ describe('Test The User Controller', () => {
 
     it('Should get an User by id', async (done) => {
         const userId = '5d2f4dbb93999ae3edceece0';
-        
+
         const user = {
             id: userId
         };
 
         mockUserRepository.findById = jest.fn(() => user);
-
-        console.log(user);
 
         try {
             const result = UserController.get({ userId: userId });
@@ -50,5 +48,25 @@ describe('Test The User Controller', () => {
         }
 
         done();
-    })
-})
+    }),
+
+        it('Should get an user feed', async (done) => {
+            const userId = '5d2f4dbb93999ae3edceece0'
+
+            const user = {
+                id: userId,
+                feed: []
+            };
+
+            mockUserRepository.findById = jest.fn(() => user);
+
+            try {
+                const result = UserController.getUserFeed({ userId: userId });
+                expect(result).resolves.toBe(user.feed)
+            } catch (err) {
+                expect(err).toBeUndefined();
+            }
+
+            done();
+        })
+});

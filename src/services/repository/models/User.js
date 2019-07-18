@@ -26,7 +26,7 @@ const User = mongoose.model('User', userSchema);
 
 transform.toJSON(User, function (rtn) {
     if (this.photos) {
-        rtn.photos = this.photos;
+        rtn.feed = this.photos;
     }
 
     if (this.password) {

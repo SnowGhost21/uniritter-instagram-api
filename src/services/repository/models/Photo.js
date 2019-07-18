@@ -11,7 +11,7 @@ const photoSchema = new Schema({
         index: true
     },
     photoUrl: { type: String, required: true },
-    image: { data: Buffer, contentType: String }
+    createdAt: {type: String, required: true}
 }, { toJSON: { virtuals: true } });
 
 photoSchema.virtual('user', {
