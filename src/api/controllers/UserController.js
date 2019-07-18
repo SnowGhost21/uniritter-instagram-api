@@ -2,7 +2,7 @@ const LocatorService = require('../../services/LocatorService.js');
 const PhotoRepository = LocatorService.getPhotoRepository();
 const UserRepository = LocatorService.getUserRepository();
 const mongoose = require('mongoose');
-const ApiError = require('../utils/APIError.js');
+const ApiError = require('../utils/ApiError.js');
 const md5 = require('md5');
 
 module.exports = {
