@@ -11,6 +11,7 @@ const cors = require('cors');
 const routes = require('../api/routes');
 const CommunicationService = require('../services/CommunicationService');
 const comm = new CommunicationService();
+const formidable = require('express-formidable');
 
 const app = express();
 const server = new http.createServer(app);
@@ -42,6 +43,8 @@ app.use(error.notFound);
 
 // error handler, send stacktrace only during development
 app.use(error.handler);
+
+app.use(formidable());
 
 //Routes
 comm.setRouter(app);

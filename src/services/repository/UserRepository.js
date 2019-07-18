@@ -9,7 +9,7 @@ module.exports = {
     },
 
     findById: async (userId) => {
-        const user = await User.findById(userId);
+        const user = await User.findById(userId).populate('photos');
         return user
     },
 

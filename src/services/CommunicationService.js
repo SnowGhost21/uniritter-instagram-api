@@ -13,8 +13,19 @@ class CommunicationService {
 
   async processHTTPRequest(req, res, action, middlewares) {
     this.handleMiddlewares(middlewares, req, 0, async () => {
+      let data = {};
+
       try {
-        const data = Object.assign(req.body || {}, req.params || {}, req.query || {});
+
+        if (req.files) {
+          const image = {
+            image: req.files
+          }
+          data = Object.assign(req.body || {}, req.params || {}, req.query || {}, image);
+        } else {
+          data = Object.assign(req.body || {}, req.params || {}, req.query || {});
+        }
+
         const result = await action(data, this, req);
 
         res.type('json');
