@@ -1,4 +1,3 @@
-const feedRoute = require('../routes/feed');
 const userRouter = require('../routes/user');
 
 const initRouters = (comm) => {
