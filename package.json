@@ -42,7 +42,7 @@
     "method-override": "^3.0.0",
     "model-transform": "^2.0.0",
     "mongodb-memory-server": "^5.1.5",
-    "mongoose": "^5.6.3",
+    "mongoose": "^5.7.5",
     "morgan": "^1.9.1",
     "url-pattern": "^1.0.3"
   },
